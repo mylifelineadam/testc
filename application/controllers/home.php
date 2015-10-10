@@ -12,6 +12,7 @@ class Home extends CI_Controller
     
     public function test() 
     {
+        $this->db->where(['user_id' => 1]);
         $q = $this->db->get('user');
         print_r($q->result());
     }
