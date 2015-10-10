@@ -52,7 +52,7 @@ class User_model extends CI_Model
 	 */
 	public function delete($user_id)
 	{
-		$this->db->delete('user', ['user_id' => $user_id])
+		$this->db->delete('user', ['user_id' => $user_id]);
 		return $this->db->affected_rows();
 	}
 
