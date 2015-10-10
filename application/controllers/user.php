@@ -18,21 +18,27 @@ class User extends CI_Controller
 
 	public function insert()
 	{
-
-	
+		$result = $this->user_model->insert([
+			'login' => 'jethro'
+		]);
+		print_r($result);
 	}
 
 
 	public function update()
 	{
+		$result = $this->user_model->update([
+			'login' => 'peggy'
 
-	
+		], 3);
+		print_r($result);
+
 	}
 
 
 	public function delete()
 	{
-
+		$result = $this->user_model->delete(6);
 	
 	}
 

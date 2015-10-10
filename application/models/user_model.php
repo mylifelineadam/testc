@@ -21,11 +21,15 @@ class User_model extends CI_Model
 	
 	}
 
-
-	public function insert()
+	/**
+	 * @param array $data
+	 * @usage
+	 *  $result = $this->user_model->insert([ 'login' => 'jethro' ]);
+	 */
+	public function insert($data)
 	{
-
-	
+		$this->db->insert('user', $data);
+		return $this->db->insert_id();
 	}
 
 
