@@ -27,7 +27,7 @@ class User extends CI_Controller
 
 	public function update()
 	{
-		echo "HELLO :) <Br/>";
+		print "HELLO :) <Br/>";
 		$result = $this->user_model->update([
 			'login' => 'peggy'
 		], 3);
