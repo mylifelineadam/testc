@@ -10,13 +10,28 @@ class Home extends CI_Controller
         $this->load->view('home/inc/footer_view.php');
     }
     
+    /*
     public function test() 
     {
-        $this->db->select('user_id','login');
-        $this->db->order_by('user_id');
+    
+        $this->db->select('user_id, login');
+        $this->db->order_by('user_id DESC');
         $q = $this->db->get('user');
         print_r($q->result());
+    
+        $this->db->insert('user', [
+            'login' => 'jenkins'
+        ]);
+
+        $this->db->where (['user_id'] => 4)
+        $this->db->update('user', [
+            'login' => 'sammy'
+        ]);
+    
+        $this->db->delete('user', ['user_id' => 4])
+
     }
+    */
     
 }
 
