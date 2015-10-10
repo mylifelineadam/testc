@@ -1,0 +1,22 @@
+# Settings File #
+#################
+settings.ini
+application/config/database.php
+
+# Cache/Assets Folders #
+########################
+application/logs/*
+application/cache/*
+
+# Include These Files #
+#######################
+!index.php
+
+# Exclude These Debug Files #
+#############################
+robots.txts
+.DS_Store
+.DS_Store?
+.vagrant
+.git
+nbproject
