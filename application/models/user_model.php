@@ -45,10 +45,15 @@ class User_model extends CI_Model
 		return $this->db->affected_rows();
 	}
 
-	public function delete()
+	/**
+	 *
+	 * @usage
+	 *  $result = $this->user_model->delete(6);
+	 */
+	public function delete($user_id)
 	{
-
-	
+		$this->db->delete('user', ['user_id' => $user_id])
+		return $this->db->affected_rows();
 	}
 
 
