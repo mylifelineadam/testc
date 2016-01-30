@@ -46,7 +46,7 @@ class User extends CI_Controller
 
 	public function test_delete()
 	{
-		$result = $this->user_model->delete(7);
+		$result = $this->user_model->delete(8);
 		print_r($result);
 	}
 
