@@ -31,7 +31,7 @@ class User extends CI_Controller
 	public function test_insert()
 	{
 		$result = $this->user_model->insert([
-			'login' => 'jethro'
+			'login' => 'batman'
 		]);
 		print_r($result);
 	}
