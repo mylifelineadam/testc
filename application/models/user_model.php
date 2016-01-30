@@ -6,9 +6,8 @@ class User_model extends CI_Model
 	/**
 	 * @usage
 	 *	All: $this->user_model->get();
-	 *  Single: $this->user_model->get('2);
+	 *  Single: $this->user_model->get(2);
 	 */
-	// 
 	public function get($user_id = null)
 	{
 		if ($user_id === null) {
