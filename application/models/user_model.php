@@ -33,7 +33,6 @@ class User_model extends CI_Model
 
 	/**
 	 *
-	 * 
 	 * @usage
 	 *  $result = $this->user_model->update([ 'login' => 'peggy' ], 3);
 	 */
