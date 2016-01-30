@@ -39,7 +39,7 @@ class User extends CI_Controller
 	public function test_update()
 	{
 		$result = $this->user_model->update([
-			'login' => 'peggy'
+			'login' => 'wolverine'
 		], 3);
 		print_r($result);
 	}
