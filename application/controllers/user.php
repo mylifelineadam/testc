@@ -11,6 +11,11 @@ class User extends CI_Controller
 
 	public function login()
 	{
+		
+		print_r($_POST);
+
+		die();
+
 		$this->session->set_userdata([
 			'user_id' => 1
 		]);
