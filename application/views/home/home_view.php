@@ -39,7 +39,7 @@
     });
     */
 
-    $("#login_form").submit(function(evt)) {
+    $("#login_form").submit(function(evt) {
         evt.preventDefault();
     });
 
