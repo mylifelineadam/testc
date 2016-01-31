@@ -19,13 +19,6 @@
             </div>
             
             <div class="control-group">
-                <label class="control-label">Password</label>
-                <div class="controls">
-                    <input type="password" name="password" class="input-xlarge" />
-                </div>
-            </div>
-
-            <div class="control-group">
                 <div class="controls">
                     <input type="submit" value="Login" class="btn btn-primary" />
                 </div>
