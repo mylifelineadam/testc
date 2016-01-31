@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="<?=base_url();?>public/css/style.css" />
 
         <script href="<?=base_url();?>public/js/jquery.js" ></script>
+        <?php /*
         <script href="<?=base_url();?>public/js/bootstrap.js" ></script>
+        */ ?>
     
     </head>
     <body>
