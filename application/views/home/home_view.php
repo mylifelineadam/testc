@@ -2,7 +2,7 @@
     
     <div class="span6">
 
-        <form class="form-horizontal" method="post" action="?">
+        <form id="login_form" class="form-horizontal" method="post" action="?">
 
             <div class="control-group">
                 <label class="control-label">Login</label>
@@ -31,7 +31,16 @@
 </div>
 
 <script type="text/javascript">
-$(function() {
-    alert(1);
-});
+    
+    /*
+    // JQuery Test
+    $(function() {
+        alert(1);
+    });
+    */
+
+    $("#login_form").submit(function(evt)) {
+        evt.preventDefault();
+    });
+
 </script>
