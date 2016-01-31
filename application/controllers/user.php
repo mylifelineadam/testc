@@ -11,8 +11,16 @@ class User extends CI_Controller
 
 	public function login()
 	{
-		
-		print_r($_POST);
+
+		$login = $this->input->post('login');
+		$password = $this->input->post('password');
+
+		$result = $this->user_model->get([
+			'login' => $login,
+			'password' => $password
+		]);
+
+		print_r($result);
 
 		die();
 
