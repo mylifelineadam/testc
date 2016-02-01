@@ -32,6 +32,10 @@ class User extends CI_Controller
 		# always output json
 		$this->output->set_content_type('application_json');
 
+		print_r($result);
+		die();
+
+
 		# if there is a result...
 		if ($result) {
 
