@@ -9,7 +9,25 @@ class Home extends CI_Controller
         $this->load->view('home/home_view.php');
         $this->load->view('home/inc/footer_view.php');
     }
-    
+
+    /*
+    public function code()
+    {
+        # Encrypt Example
+        # Encrypt uses CI library and can be decoded.
+
+        # $this->load->library('encrypt');
+        # echo $this->encrypt->encode('My Secret Password');
+        # echo $this->encrypt->decode('');
+
+        # Hash Example
+        # Hash uses PHP library and cannot be decoded.
+        # Also, "salt" password with a custom constant for security
+
+        # echo hash('sha256','password here' . SALT);
+    }
+    */
+
     /*
     public function test() 
     {
