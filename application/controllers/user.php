@@ -24,7 +24,7 @@ class User extends CI_Controller
 			'password' => $password
 		]);
 
-		print_r($_POST);
+		print_r($result);
 		die();
 
 		$output = array();
