@@ -12,9 +12,9 @@ class User extends CI_Controller
 	public function login()
 	{
 
-		print_r($_POST);
-		die();
-
+		# testing code
+		# print_r($_POST);
+		# die();
 
 		$login = $this->input->post('login');
 		$password = $this->input->post('password');
@@ -23,6 +23,9 @@ class User extends CI_Controller
 			'login' => $login,
 			'password' => $password
 		]);
+
+		print_r($_POST);
+		die();
 
 		$output = array();
 
