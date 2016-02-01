@@ -68,6 +68,74 @@ class User extends CI_Controller
 
 	}
 
+
+
+
+	public function register()
+	{
+
+		# print_r($_POST);
+		# die();
+
+		$login = $this->input->post('login');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+		$password_again = $this->input->post('password_again');
+
+
+		die();
+
+		# set user login vars: username & password hash
+		$result = $this->user_model->get([
+			'login' => $login,
+			'password' => hash('sha256', $password . SALT)
+		]);
+
+		# print_r($result);
+		# die();
+
+		# create an output array
+		$output = array();
+
+		# always output json
+		$this->output->set_content_type('application_json');
+
+
+		# if there is a result...
+		if ($result) {
+
+			# ... we will set the user data
+			$this->session->set_userdata([
+				'user_id' => $result[0]['user_id']
+			]);
+
+			# sending back json
+			# found user = success (1)
+			$this->output->set_output(json_encode([
+				'result' => 1
+			]));
+
+			# we found what we are looking for
+			# ... so stop function
+			return false;
+
+		}
+
+		# did not find user = fail (0)
+		$this->output->set_output(json_encode([
+			'result' => 0
+		]));
+
+		# print_r($result);
+
+		# die();
+
+		# $session = $this->session->all_userdata();
+		# print_r($session);
+
+	}
+
+
 	public function test_get()
 	{
 		$data = $this->user_model->get(1);
