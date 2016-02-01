@@ -42,7 +42,7 @@
 
         </form>
 
-        <a href="<?=$site_url('/')?>">Back</a>
+        <a href="<?=site_url('/')?>">Back</a>
 
     </div>
 
