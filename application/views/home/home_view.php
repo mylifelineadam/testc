@@ -46,7 +46,7 @@
 
         $.post(url, postData, function(o) {
             if (o.result == 1) {
-                alert('');
+                alert('Login success.');
             } else {
                 alert('Invalid login');
             }
