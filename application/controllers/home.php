@@ -10,6 +10,13 @@ class Home extends CI_Controller
         $this->load->view('home/inc/footer_view.php');
     }
 
+    public function register()
+    {
+        $this->load->view('home/inc/header_view.php');
+        $this->load->view('home/register_view.php');
+        $this->load->view('home/inc/footer_view.php');
+    }
+
     /*
     public function code()
     {
