@@ -52,8 +52,7 @@
                 window.location.href = '<?=site_url('dashboard') ?>';
             } else {
                 // alert('Invalid login');
-                
-                $("#login_form_alert").html('Invalid login.').css('display:block;');
+                $("#login_form_alert").html('Invalid login.').css('display','block');
             }
         }, 'json');
 
