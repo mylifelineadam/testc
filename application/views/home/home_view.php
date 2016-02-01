@@ -4,6 +4,8 @@
 
         <form id="login_form" class="form-horizontal" method="post" action="<?=site_url('user/login'); ?>">
 
+            <div id="login_form_alert" style=" display: none;"></div>
+
             <div class="control-group">
                 <label class="control-label">Login</label>
                 <div class="controls">
@@ -49,7 +51,9 @@
                 // alert('Login success.');
                 window.location.href = '<?=site_url('dashboard') ?>';
             } else {
-                alert('Invalid login');
+                // alert('Invalid login');
+                
+                $("#login_form_alert").html('Invalid login.').css('display:block;');
             }
         }, 'json');
 
