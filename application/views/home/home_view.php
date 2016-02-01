@@ -4,7 +4,7 @@
 
         <form id="login_form" class="form-horizontal" method="post" action="<?=site_url('user/login'); ?>">
 
-            <div id="login_form_alert"></div>
+            <div id="login_form_alert" style="display: none;"></div>
 
             <div class="control-group">
                 <label class="control-label">Login</label>
@@ -52,8 +52,11 @@
                 window.location.href = '<?=site_url('dashboard') ?>';
             } else {
                 // alert('Invalid login');
-                $("#login_form_alert").html('Invalid login.');
-                $("#login_form_alert").css('background-color','#f80');
+                $("#login_form_alert")
+                    .html('Invalid login.')
+                    .css('background-color','#f80')
+                    .css('padding','10px 15px')
+                    .fadeIn( "slow" );
             }
         }, 'json');
 
