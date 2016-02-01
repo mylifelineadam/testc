@@ -68,9 +68,7 @@ class User extends CI_Controller
 
 	}
 
-
-
-
+	# new user registration
 	public function register()
 	{
 
@@ -82,14 +80,14 @@ class User extends CI_Controller
 		$password = $this->input->post('password');
 		$password_again = $this->input->post('password_again');
 
-		die('not yet ready');
-
-
-		# set user login vars: username & password hash
-		$result = $this->user_model->get([
+		$this->user_model->insert([
 			'login' => $login,
+			'email' => $email,
 			'password' => hash('sha256', $password . SALT)
 		]);
+
+		die('not yet ready');
+
 
 		# print_r($result);
 		# die();
