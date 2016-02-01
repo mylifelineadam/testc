@@ -12,7 +12,6 @@ class User extends CI_Controller
 	public function login()
 	{
 
-		# testing code
 		# print_r($_POST);
 		# die();
 
@@ -24,9 +23,10 @@ class User extends CI_Controller
 			'password' => $password
 		]);
 
-		print_r($result);
-		die();
+		# print_r($result);
+		# die();
 
+		# create an output array
 		$output = array();
 
 		# always output json
@@ -41,14 +41,18 @@ class User extends CI_Controller
 			]);
 
 			# sending back json
-			$this->output->set_output(jsonencode([
+			# found user = success (1)
+			$this->output->set_output(json_encode([
 				'result' => 1
 			]));
 
+			# we found what we are looking for
+			# ... so stop function
 			return false;
 
 		}
 
+		# did not find user = fail (0)
 		$this->output->set_output(jsonencode([
 			'result' => 0
 		]));
