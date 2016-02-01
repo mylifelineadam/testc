@@ -28,7 +28,7 @@
 
         </form>
 
-        <a href="<?=$site_url('home/register')?>">Register</a>
+        <a href="<?=site_url('home/register'); ?>" >Register</a>
 
     </div>
 
