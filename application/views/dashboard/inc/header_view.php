@@ -8,10 +8,10 @@
 
         <script src="<?=base_url();?>public/js/jquery.js" ></script>
         <script src="<?=base_url();?>public/js/bootstrap.js" ></script>
-    
+
     </head>
     <body>
-    
+
         <nav class="navbar">
             <div class="navbar-inner">
                 <span class="brand">JrDash</span>
@@ -22,7 +22,6 @@
                 </ul>
             </div>
         </nav>
-        
+
         <!-- start:wrapper -->
         <div class="wrapper">
-            
