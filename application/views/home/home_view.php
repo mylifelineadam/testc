@@ -45,7 +45,12 @@
         var postData = $(this).serialize();
 
         $.post(url, postData, function(o) {
-            
+            if (o.result == 1) {
+                alert('');
+            } else {
+                alert('Invalid login');
+            }
+
         }, 'json');
 
     });
