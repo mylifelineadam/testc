@@ -46,7 +46,8 @@
 
         $.post(url, postData, function(o) {
             if (o.result == 1) {
-                alert('Login success.');
+                // alert('Login success.');
+                window.location.href = '<?=site_url('dashboard') ?>';
             } else {
                 alert('Invalid login');
             }
