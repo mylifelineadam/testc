@@ -21,7 +21,7 @@ class User extends CI_Controller
 		# set user login vars: username & password hash
 		$result = $this->user_model->get([
 			'login' => $login,
-			'password' => hash('sha256', $password . SALT);
+			'password' => hash('sha256', $password . SALT)
 		]);
 
 		# print_r($result);
