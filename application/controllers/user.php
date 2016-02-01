@@ -20,16 +20,38 @@ class User extends CI_Controller
 			'password' => $password
 		]);
 
-		print_r($result);
+		$output = array();
 
-		die();
+		# always output json
+		$this->output->set_content_type('application_json');
 
-		$this->session->set_userdata([
-			'user_id' => 1
-		]);
+		# if there is a result...
+		if ($result) {
 
-		$session = $this->session->all_userdata();
-		print_r($session);
+			# ... we will set the user data
+			$this->session->set_userdata([
+				'user_id' => $result[0]['user_id']
+			]);
+
+			# sending back json
+			$this->output->set_output(jsonencode([
+				'result' => 1
+			]));
+
+			return false;
+
+		}
+
+		$this->output->set_output(jsonencode([
+			'result' => 0
+		]));
+
+		# print_r($result);
+
+		# die();
+
+		# $session = $this->session->all_userdata();
+		# print_r($session);
 
 	}
 
