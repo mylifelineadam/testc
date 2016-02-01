@@ -32,9 +32,6 @@ class User extends CI_Controller
 		# always output json
 		$this->output->set_content_type('application_json');
 
-		print_r($result);
-		die();
-
 
 		# if there is a result...
 		if ($result) {
@@ -57,7 +54,7 @@ class User extends CI_Controller
 		}
 
 		# did not find user = fail (0)
-		$this->output->set_output(jsonencode([
+		$this->output->set_output(json_encode([
 			'result' => 0
 		]));
 
