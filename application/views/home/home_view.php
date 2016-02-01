@@ -45,12 +45,13 @@
         var postData = $(this).serialize();
 
         $.post(url, postData, function(o) {
+            /*
             if (o.result == 1) {
                 alert('Login success.');
             } else {
                 alert('Invalid login');
             }
-
+            */
         }, 'json');
 
     });
