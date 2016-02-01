@@ -82,8 +82,8 @@ class User extends CI_Controller
 		$password = $this->input->post('password');
 		$password_again = $this->input->post('password_again');
 
+		die('not yet ready');
 
-		die();
 
 		# set user login vars: username & password hash
 		$result = $this->user_model->get([
