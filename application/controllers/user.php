@@ -86,6 +86,8 @@ class User extends CI_Controller
 			'password' => hash('sha256', $password . SALT)
 		]);
 
+		echo $user_id;
+
 		die('not yet ready');
 
 

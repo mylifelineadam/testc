@@ -37,7 +37,7 @@
 
             <div class="control-group">
                 <div class="controls">
-                    <input type="submit" value="Login" class="btn btn-primary" />
+                    <input type="submit" value="Register" class="btn btn-primary" />
                 </div>
             </div>
 
