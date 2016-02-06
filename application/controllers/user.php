@@ -78,8 +78,8 @@ class User extends CI_Controller
 		# print_r($_POST);
 		# die();
 
-		$this->form_validation->set_rule('first_name', 'First Name', 'required|min_length[2]|max_length[16]');
-		$this->form_validation->set_rule('last_name', 'Last Name', 'required|min_length[2]|max_length[16]');
+		$this->form_validation->set_rules('first_name', 'First Name', 'required|min_length[2]|max_length[30]');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'required|min_length[2]|max_length[30]');
 
 		/*
 		$this->form_validation->set_rule('logi', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
