@@ -80,7 +80,7 @@ class User extends CI_Controller
 		$password = $this->input->post('password');
 		$password_again = $this->input->post('password_again');
 
-		$this->user_model->insert([
+		$user_id = $this->user_model->insert([
 			'login' => $login,
 			'email' => $email,
 			'password' => hash('sha256', $password . SALT)
