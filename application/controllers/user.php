@@ -108,7 +108,7 @@ class User extends CI_Controller
 				# 'data' => $this->form_validation->error_array()
 			]));
 
-			die("here i am user.php");
+			# die("here i am user.php");
 
 			# exit out of function
 			return false;
