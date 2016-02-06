@@ -87,8 +87,17 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[password_again]');
 		$this->form_validation->set_rules('password_again', 'Password Again', 'required|min_length[6]|max_length[16]');
 
+		# if validation found errors then...
 		if ($this->form_validation->run() == FALSE ) {
+
+			# show validation errors
+			echo validation_errors();
+
+			# set result to "0"
 			$this->output->set_output(json_encode(['result' => 0]));
+
+			# exit out of function
+			return false;
 		}
 
 		$login = $this->input->post('login');
@@ -136,6 +145,7 @@ class User extends CI_Controller
 
 		# did not find user = fail (0)
 		$this->output->set_output(json_encode(['result' => 0]));
+		return false;
 
 		# print_r($result);
 
