@@ -80,15 +80,12 @@ class User extends CI_Controller
 
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|min_length[2]|max_length[30]');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'required|min_length[2]|max_length[30]');
-
-		/*
-		$this->form_validation->set_rule('logi', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
-		$this->form_validation->set_rule('login', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
-		$this->form_validation->set_rule('city', 'City', 'exact_length[0]');
-		$this->form_validation->set_rule('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
-		$this->form_validation->set_rule('password', 'Password', 'required|min_length[6]|matches[password_again]');
-		$this->form_validation->set_rule('password_again', 'Password Again', 'required|min_length[6]|max_length[16]');
-		*/
+		$this->form_validation->set_rules('logi', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
+		$this->form_validation->set_rules('login', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
+		$this->form_validation->set_rules('city', 'City', 'exact_length[0]');
+		$this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[password_again]');
+		$this->form_validation->set_rules('password_again', 'Password Again', 'required|min_length[6]|max_length[16]');
 
 		if ($this->form_validation->run() == FALSE ) {
 			$this->output->set_output(json_encode(['result' => 0]));
