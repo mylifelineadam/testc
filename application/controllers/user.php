@@ -72,16 +72,36 @@ class User extends CI_Controller
 	public function register()
 	{
 
+		# always output json
+		$this->output->set_content_type('application_json');
+
 		# print_r($_POST);
 		# die();
 
+		$this->form_validation->set_rule('first_name', 'First Name', 'required|min_length[2]|max_length[16]');
+		$this->form_validation->set_rule('last_name', 'Last Name', 'required|min_length[2]|max_length[16]');
+		$this->form_validation->set_rule('logi', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
+		$this->form_validation->set_rule('login', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
+		$this->form_validation->set_rule('city', 'City', 'exact_length[0]');
+		$this->form_validation->set_rule('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
+		$this->form_validation->set_rule('password', 'Password', 'required|min_length[6]|matches[password_again]');
+		$this->form_validation->set_rule('password_again', 'Password Again', 'required|min_length[6]|max_length[16]');
+
+		if ($this->form_validation->run() == FALSE ) {
+			$this->output->set_output(json_encode(['result' => 0]));
+		}
+
 		$login = $this->input->post('login');
+		$first_name = $this->input->post('first_name');
+		$last_name = $this->input->post('last_name');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$password_again = $this->input->post('password_again');
 
 		$user_id = $this->user_model->insert([
 			'login' => $login,
+			'first_name' => $first_name,
+			'last_name' => $last_name,
 			'email' => $email,
 			'password' => hash('sha256', $password . SALT)
 		]);
@@ -90,16 +110,11 @@ class User extends CI_Controller
 
 		die('not yet ready');
 
-
 		# print_r($result);
 		# die();
 
 		# create an output array
 		$output = array();
-
-		# always output json
-		$this->output->set_content_type('application_json');
-
 
 		# if there is a result...
 		if ($result) {
@@ -111,9 +126,7 @@ class User extends CI_Controller
 
 			# sending back json
 			# found user = success (1)
-			$this->output->set_output(json_encode([
-				'result' => 1
-			]));
+			$this->output->set_output(json_encode(['result' => 1]));
 
 			# we found what we are looking for
 			# ... so stop function
@@ -122,9 +135,7 @@ class User extends CI_Controller
 		}
 
 		# did not find user = fail (0)
-		$this->output->set_output(json_encode([
-			'result' => 0
-		]));
+		$this->output->set_output(json_encode(['result' => 0]));
 
 		# print_r($result);
 
