@@ -85,14 +85,27 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[password_again]');
 
+		# set custom error messages
+		/*
+		$this->form_validation->set_message('required', '');
+		$this->form_validation->set_message('min_length', '');
+		$this->form_validation->set_message('max_length', '');
+		$this->form_validation->set_message('valid_email', '');
+		$this->form_validation->set_message('is_unique', '');
+		$this->form_validation->set_message('matches', '');
+		*/
+
 		# if validation found errors then...
 		if ($this->form_validation->run() == FALSE ) {
 
 			# show validation errors
-			echo validation_errors();
+			# echo validation_errors();
 
-			# set result to "0"
-			$this->output->set_output(json_encode(['result' => 0]));
+			# set result to "0" and send back validation errors
+			$this->output->set_output(json_encode([
+				'result' => 0, 
+				'data' => validation_errors();
+			]));
 
 			# exit out of function
 			return false;
