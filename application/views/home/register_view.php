@@ -21,18 +21,19 @@
             </div>
 
             <div class="control-group">
+                <label class="control-label">Password</label>
+                <div class="controls">
+                    <input type="password" name="password" class="input-xlarge" />
+                </div>
+            </div>
+
+            <div class="control-group">
                 <label class="control-label">Password Again</label>
                 <div class="controls">
                     <input type="password" name="password_again" class="input-xlarge" />
                 </div>
             </div>
 
-            <div class="control-group">
-                <label class="control-label">Password</label>
-                <div class="controls">
-                    <input type="password" name="password" class="input-xlarge" />
-                </div>
-            </div>
 
             <div class="control-group">
                 <div class="controls">
