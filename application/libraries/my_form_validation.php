@@ -2,6 +2,9 @@
 
 class MY_Form_validation extends CI_Form_valildation
 {
+
+	die("here i am my_form_validation.php");
+
 	public function __construct($config = array())
 	{
 		parent::__construct($config);
