@@ -101,7 +101,6 @@ class User extends CI_Controller
 			# show validation errors
 			# echo validation_errors();
 
-
 			# set result to "0" and send back validation errors
 			$this->output->set_output(json_encode([
 				'result' => 0, 
