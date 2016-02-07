@@ -103,9 +103,9 @@ class User extends CI_Controller
 
 			# set result to "0" and send back validation errors
             $this->output->set_output(json_encode([
-            		'result' => 0,
+            		'result' => '0',
             		# 'data' => $this->form_validation->error_array(),
-            		'data' => $this->form_validation->test_get_five()
+            		'test_get_five' => $this->form_validation->test_get_five()
             ]));
 
 			# die("here i am user.php");
