@@ -3,12 +3,14 @@
 class MY_Form_validation extends CI_Form_validation 
 {
 
+    /*
     # public function __construct($config = array())
     public function __construct()
     {
         # parent::__construct($config);
         parent::__construct();
     }
+    */
 
     /*
     public function error_array()
