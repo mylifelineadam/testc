@@ -3,9 +3,11 @@
 class MY_Form_validation extends CI_Form_validation 
 {
 
-    public function __construct($config = array())
+    # public function __construct($config = array())
+    public function __construct()
     {
-        parent::__construct($config);
+        # parent::__construct($config);
+        parent::__construct();
     }
 
     /*
@@ -17,7 +19,8 @@ class MY_Form_validation extends CI_Form_validation
     }
     */
 
-    public function test_get_five() {
+    public function test_get_five() 
+    {
         return '5';
     }
 
