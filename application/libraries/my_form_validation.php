@@ -1,16 +1,12 @@
 <?php
 
-class MY_Form_validation extends CI_Form_validation 
+class My_Form_validation extends CI_Form_validation 
 {
 
-    /*
-    # public function __construct($config = array())
-    public function __construct()
+    public function __construct($config = array())
     {
-        # parent::__construct($config);
-        parent::__construct();
+        parent::__construct($config);
     }
-    */
 
     /*
     public function error_array()
