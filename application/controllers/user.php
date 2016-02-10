@@ -95,7 +95,7 @@ class User extends CI_Controller
 		$this->form_validation->set_message('matches', '');
 		*/
 
-		echo $this->form_validation->test_get_five();
+		# echo $this->form_validation->test_get_five();
 		die(' it ends tonight! ');
 
 		# if validation found errors then...
