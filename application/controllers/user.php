@@ -95,8 +95,8 @@ class User extends CI_Controller
 		$this->form_validation->set_message('matches', '');
 		*/
 
-		echo $this->form_validation->test_get_five();
-		die(' it ends tonight! ');
+		# echo $this->form_validation->test_get_five();
+		# die(' it ends tonight! ');
 
 		# if validation found errors then...
 		if ($this->form_validation->run() == FALSE ) {
@@ -107,8 +107,10 @@ class User extends CI_Controller
 			# set result to "0" and send back validation errors
             $this->output->set_output(json_encode([
             		'result' => '0'
-            		# 'data' => $this->form_validation->error_array(),
-            		# , 'test_get_five' => $this->form_validation->test_get_five()
+            		, 
+            		'data' => $this->form_validation->error_array()
+            		# , 
+            		# 'test_get_five' => $this->form_validation->test_get_five()
             ]));
 
 			# die("here i am user.php");
