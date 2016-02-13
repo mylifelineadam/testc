@@ -241,7 +241,7 @@ class User extends CI_Controller
 		}
 
 		# did not find user = fail (0)
-		$this->output->set_output(json_encode(['result' => 0, 'error' => 'User not created.']);
+		$this->output->set_output(json_encode( ['result' => 0, 'error' => 'User not created.'] ));
 		return false;
 
 		# print_r($result);
