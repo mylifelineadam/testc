@@ -115,7 +115,7 @@ class User extends CI_Controller
 
 		$login = trim( $this->input->post('login') );
 		$first_name = trim( $this->input->post('first_name') );
-		$last_name = trim( $this->input->post('last_name') )
+		$last_name = trim( $this->input->post('last_name') );
 		$email = trim( strtolower( $this->input->post('email') ) );
 		$password = trim( $this->input->post('password') );
 		
@@ -154,7 +154,7 @@ class User extends CI_Controller
 			# note: service limit = 10,000 requests per hour
 			$geoip_json = file_get_contents('http://freegeoip.net/json/'.$ip_address);
 
-			$geoip_a = json_decode($geoip_json, true)
+			$geoip_a = json_decode($geoip_json, true);
 			
 			# if geo pull is a valid array
 			if ( 
@@ -232,7 +232,7 @@ class User extends CI_Controller
 		}
 
 		# did not find user = fail (0)
-		$this->output->set_output(json_encode(['result' => 0], 'error' => 'User not created.'));
+		$this->output->set_output(json_encode(['result' => 0, 'error' => 'User not created.']);
 		return false;
 
 		# print_r($result);

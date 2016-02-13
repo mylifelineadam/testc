@@ -14,11 +14,11 @@ class MY_User_agent extends CI_User_agent {
     	$temp_device_category = 0;
 
 	    $detect = new Mobile_Detect();
-	    if ( $detect->isTablet() )
+	    if ( $detect->isTablet() ) {
 
     		$temp_device_category = 3; # Tablet
 
-	    } elseif ($detect->isMobile() ) {
+	    } elseif ( $detect->isMobile() ) {
 	        
     		$temp_device_category = 2; # Tablet
 
