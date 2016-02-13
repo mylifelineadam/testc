@@ -137,6 +137,9 @@ class User extends CI_Controller
 		$register_dma_code = '';
 		$register_area_code = '';
 
+		echo $ip_address;
+		die();
+
 		# if there's an ip address
 		if ($ip_address) {
 			
@@ -157,6 +160,8 @@ class User extends CI_Controller
 
 			$geoip_a = json_decode($geoip_json, true);
 			
+
+
 			# if geo pull is a valid array
 			if ( 
 				is_array($geoip_a) && 
