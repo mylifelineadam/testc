@@ -118,11 +118,13 @@ class User extends CI_Controller
 		$last_name = trim( $this->input->post('last_name') );
 		$email = trim( strtolower( $this->input->post('email') ) );
 		$password = trim( $this->input->post('password') );
+
+		die('no errors, let us continue');
+
 		
 		$register_user_agent = $this->agent->agent_string();
 
 		echo $register_user_agent;
-		die();
 
 		# $register_device_category = $this->agent->find_device_category();
 		$register_device_category = '';
