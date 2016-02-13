@@ -113,8 +113,6 @@ class User extends CI_Controller
 			return false;
 		}
 
-		die('stop here 0');
-
 		$login = trim( $this->input->post('login') );
 		$first_name = trim( $this->input->post('first_name') );
 		$last_name = trim( $this->input->post('last_name') );
@@ -128,8 +126,6 @@ class User extends CI_Controller
 		$register_referrer = $this->agent->referrer();
 		$register_domain = $_SERVER['HTTP_HOST'];
 
-		die('stop here a');
-
 		$ip_address = $this->input->ip_address();
 		$geoip_a = '';
 		$register_country_code = '';
@@ -140,8 +136,6 @@ class User extends CI_Controller
 		$register_lng = '';
 		$register_dma_code = '';
 		$register_area_code = '';
-
-		die('stop here b');
 
 		# if there's an ip address
 		if ($ip_address) {
