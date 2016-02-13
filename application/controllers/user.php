@@ -113,6 +113,8 @@ class User extends CI_Controller
 			return false;
 		}
 
+		die('stop here 0');
+
 		$login = trim( $this->input->post('login') );
 		$first_name = trim( $this->input->post('first_name') );
 		$last_name = trim( $this->input->post('last_name') );
