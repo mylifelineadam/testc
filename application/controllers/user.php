@@ -126,6 +126,8 @@ class User extends CI_Controller
 		$register_referrer = $this->agent->referrer();
 		$register_domain = $_SERVER['HTTP_HOST'];
 
+		die('stop here a');
+
 		$ip_address = $this->input->ip_address();
 		$geoip_a = '';
 		$register_country_code = '';
@@ -137,7 +139,7 @@ class User extends CI_Controller
 		$register_dma_code = '';
 		$register_area_code = '';
 
-		die('stop here a');
+		die('stop here b');
 
 		# if there's an ip address
 		if ($ip_address) {
