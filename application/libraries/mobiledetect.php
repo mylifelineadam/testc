@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class MY_Mobile_detect
+class mobiledetect
 {
 	public function __construct()
 	{
