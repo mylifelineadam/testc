@@ -37,7 +37,7 @@
 |
 */
 
-$autoload['packages'] = array(APPPATH.'third_party/mobile_detect/Mobile_Detect.php');
+$autoload['packages'] = array();
 
 /*
 | -------------------------------------------------------------------
@@ -51,7 +51,7 @@ $autoload['packages'] = array(APPPATH.'third_party/mobile_detect/Mobile_Detect.p
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session', 'form_validation');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'my_mobile_detect');
 
 
 /*
