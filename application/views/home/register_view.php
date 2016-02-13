@@ -2,6 +2,8 @@
     
     <div class="span6">
 
+        <div id="register_form_error" class="alert alert-error"><!-- Dynamic --></div>
+
         <form id="register_form" class="form-horizontal" method="post" action="<?=site_url('user/register'); ?>">
 
             <div id="register_form_alert" style="display: none;"></div>
@@ -19,7 +21,6 @@
                     <input type="text" name="last_name" class="input-xlarge" value=""  />
                 </div>
             </div>
-
 
             <div class="control-group">
                 <label class="control-label">Login</label>
@@ -87,6 +88,8 @@
     });
     */
 
+    $("#register_form_error").hide();
+
     $("#register_form").submit(function(evt) {
         evt.preventDefault();
         var url = $(this).attr('action');
@@ -98,6 +101,17 @@
                 window.location.href = '<?=site_url('dashboard') ?>';
             } else {
                 // alert('Invalid login');
+                var output = '<ul>';
+                // for (var i = 0, i < o.eror.length; i++ ) {
+                for (var key in o.error) {
+                    var value = o.error[key];
+                    // console.log(key);
+                    output += '<li>' + value + '</li>';
+                }
+                output += '</ul>';
+                $("#register_form_error").hmtl(output);
+                $("#register_form_error").fadeIn("slow");
+
                 $("#register_form_alert")
                     .html('Invalid login.')
                     .css('background-color','#f80')
