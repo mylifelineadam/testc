@@ -113,19 +113,94 @@ class User extends CI_Controller
 			return false;
 		}
 
-		$login = $this->input->post('login');
-		$first_name = $this->input->post('first_name');
-		$last_name = $this->input->post('last_name');
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
-		$password_again = $this->input->post('password_again');
+		$login = trim( $this->input->post('login') );
+		$first_name = trim( $this->input->post('first_name') );
+		$last_name = trim( $this->input->post('last_name') )
+		$email = trim( strtolower( $this->input->post('email') ) );
+		$password = trim( $this->input->post('password') );
+		
+		$register_user_agent = $this->agent->agent_string();
+		$register_device_category = $this->agent->find_device_category();
+		$register_platform = $this->agent->platform();
+		$register_referrer = $this->agent->referrer();
+		$register_domain = $_SERVER['HTTP_HOST'];
+
+		$ip_address = $this->input->ip_address();
+		$geoip_a = '';
+		$register_country_code = '';
+		$register_region = '';
+		$register_city = '';
+		$register_zip = '';
+		$register_lat = '';
+		$register_lng = '';
+		$register_dma_code = '';
+		$register_area_code = '';
+
+		# if there's an ip address
+		if ($ip_address) {
+			
+			# pull geo data based on ip address
+			
+			# method 1: require geo library
+			# reference: http://php.net/manual/en/book.geoip.php
+			# $geoip_a = geoip_record_by_name($ip_address);
+
+			# method 3: simple offsite pull
+			# reference: http://stackoverflow.com/questions/21306088/getting-geolocation-from-ip-address
+			# untested
+
+			# method 3: simple offsite json data pull
+			# reference: http://stackoverflow.com/questions/409999/getting-the-location-from-an-ip-address
+			# note: service limit = 10,000 requests per hour
+			$geoip_json = file_get_contents('http://freegeoip.net/json/'.$ip_address);
+
+			$geoip_a = json_decode($geoip_json, true)
+			
+			# if geo pull is a valid array
+			if ( 
+				is_array($geoip_a) && 
+				array_key_exists('latitude',$geoip_a) &&
+				($geoip_a['latitude'] != "") && 
+				array_key_exists('longitude',$geoip_a) &&
+				($geoip_a['longitude'] != "") ) 
+			{
+
+				$register_country_code = $geoip_a['country_code']; # 2 characters
+				$register_region = $geoip_a['region'];
+				$register_city = $geoip_a['city'];
+				$register_zip = $geoip_a['zip'];
+				$register_lat = $geoip_a['latitude'];
+				$register_lng = $geoip_a['longitude'];
+				$register_dma_code = $geoip_a['dma_code'];
+				$register_area_code = $geoip_a['area_code'];
+
+			}
+		}
 
 		$user_id = $this->user_model->insert([
 			'login' => $login,
 			'first_name' => $first_name,
 			'last_name' => $last_name,
 			'email' => $email,
-			'password' => hash('sha256', $password . SALT)
+			'password' => hash('sha256', $password . SALT),
+			
+			'register_user_agent' => $register_user_agent,
+			'register_device_category' => $register_device_category,
+			'register_platform' => $register_platform,
+			'register_referrer' => $register_referrer,
+			'register_domain' => $register_domain,
+
+			'register_ip' => $ip_address,			
+			'register_geoip_a' => $geoip_a,
+			'register_country_code' => $register_country_code,
+			'register_region' => $register_region,
+			'register_city' => $register_city,
+			'register_zip' => $register_zip,
+			'register_lat' => $register_lat,
+			'register_lng' => $register_lng,
+			'register_dma_code' => $register_dma_code,
+			'register_area_code' => $register_area_code
+		
 		]);
 
 		echo $user_id;
@@ -139,7 +214,7 @@ class User extends CI_Controller
 		$output = array();
 
 		# if there is a result...
-		if ($result) {
+		if ($user_id) {
 
 			# ... we will set the user data
 			$this->session->set_userdata([
@@ -157,7 +232,7 @@ class User extends CI_Controller
 		}
 
 		# did not find user = fail (0)
-		$this->output->set_output(json_encode(['result' => 0]));
+		$this->output->set_output(json_encode(['result' => 0], 'error' => 'User not created.'));
 		return false;
 
 		# print_r($result);
