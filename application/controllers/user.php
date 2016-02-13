@@ -85,6 +85,8 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[password_again]');
 
+		die('stop here -1');
+
 		# set custom error messages
 		/*
 		$this->form_validation->set_message('required', '');
