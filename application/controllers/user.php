@@ -165,8 +165,11 @@ class User extends CI_Controller
 			$geoip_json = file_get_contents('http://freegeoip.net/json/'.$ip_address);
 
 			$geoip_a = json_decode($geoip_json, true);
+			$register_geoip_a = "";
 			
-
+			echo "<pre>";
+			print_r($geoip_a);
+			echo "</pre>";
 
 			# if geo pull is a valid array
 			if ( 
@@ -186,6 +189,8 @@ class User extends CI_Controller
 				$register_dma_code = $geoip_a['dma_code'];
 				$register_area_code = $geoip_a['area_code'];
 
+				$register_geoip_a = implode("|<>|",$geoip_a);
+
 			}
 		}
 
@@ -203,7 +208,7 @@ class User extends CI_Controller
 			'register_domain' => $register_domain,
 
 			'register_ip' => $ip_address,			
-			'register_geoip_a' => $geoip_a,
+			'register_geo' => $register_geoip_a,
 			'register_country_code' => $register_country_code,
 			'register_region' => $register_region,
 			'register_city' => $register_city,
