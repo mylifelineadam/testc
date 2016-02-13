@@ -137,6 +137,8 @@ class User extends CI_Controller
 		$register_dma_code = '';
 		$register_area_code = '';
 
+		die('stop here a');
+
 		# if there's an ip address
 		if ($ip_address) {
 			
