@@ -120,7 +120,8 @@ class User extends CI_Controller
 		$password = trim( $this->input->post('password') );
 		
 		$register_user_agent = $this->agent->agent_string();
-		$register_device_category = $this->agent->find_device_category();
+		# $register_device_category = $this->agent->find_device_category();
+		$register_device_category = '';
 		$register_platform = $this->agent->platform();
 		$register_referrer = $this->agent->referrer();
 		$register_domain = $_SERVER['HTTP_HOST'];
