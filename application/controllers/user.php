@@ -120,6 +120,10 @@ class User extends CI_Controller
 		$password = trim( $this->input->post('password') );
 		
 		$register_user_agent = $this->agent->agent_string();
+
+		echo $register_user_agent;
+		die();
+
 		# $register_device_category = $this->agent->find_device_category();
 		$register_device_category = '';
 		$register_platform = $this->agent->platform();
@@ -137,8 +141,6 @@ class User extends CI_Controller
 		$register_dma_code = '';
 		$register_area_code = '';
 
-		echo $ip_address;
-		die();
 
 		# if there's an ip address
 		if ($ip_address) {
