@@ -109,7 +109,7 @@
                     output += '<li>' + value + '</li>';
                 }
                 output += '</ul>';
-                $("#register_form_error").hmtl(output);
+                $("#register_form_error").html(output);
                 $("#register_form_error").fadeIn("slow");
 
                 $("#register_form_alert")
