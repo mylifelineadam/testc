@@ -133,6 +133,7 @@ class User extends CI_Controller
 		$register_platform = $this->agent->platform();
 		$register_referrer = $this->agent->referrer();
 		$register_domain = $_SERVER['HTTP_HOST'];
+		$register_url = current_url();
 
 		$ip_address = $this->input->ip_address();
 		$geoip_a = '';
@@ -151,7 +152,7 @@ class User extends CI_Controller
 			
 			# pull geo data based on ip address
 			
-			# method 1: require geo library
+			# method 1: requires geo library
 			# reference: http://php.net/manual/en/book.geoip.php
 			# $geoip_a = geoip_record_by_name($ip_address);
 
@@ -188,6 +189,7 @@ class User extends CI_Controller
 				$register_lng = $geoip_a['longitude'];
 				$register_dma_code = $geoip_a['dma_code'];
 				$register_area_code = $geoip_a['area_code'];
+				$register_metro_code = $geoip_a['metro_code'];
 
 				$register_geoip_a = implode("|<>|",$geoip_a);
 
@@ -206,6 +208,7 @@ class User extends CI_Controller
 			'register_platform' => $register_platform,
 			'register_referrer' => $register_referrer,
 			'register_domain' => $register_domain,
+			'register_url' => $register_url,
 
 			'register_ip' => $ip_address,			
 			'register_geo' => $register_geoip_a,
@@ -216,6 +219,7 @@ class User extends CI_Controller
 			'register_lat' => $register_lat,
 			'register_lng' => $register_lng,
 			'register_dma_code' => $register_dma_code,
+			'register_area_code' => $register_area_code,
 			'register_area_code' => $register_area_code
 		
 		]);
