@@ -82,8 +82,10 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('last_name', 'Last Name', 'required|min_length[2]|max_length[30]');
 		$this->form_validation->set_rules('login', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
 		$this->form_validation->set_rules('city', 'City', 'exact_length[0]');
-		$this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
-		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[password_again]');
+		# $this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
+		$this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]');
+		# $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[password_again]');
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 
 		# set custom error messages
 		/*
