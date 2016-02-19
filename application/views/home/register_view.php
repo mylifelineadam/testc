@@ -45,12 +45,14 @@
                 </div>
             </div>
 
+            <?php /*
             <div class="control-group">
                 <label class="control-label">Email Again</label>
                 <div class="controls">
                     <input type="text" name="email_again" class="input-xlarge" value="" />
                 </div>
             </div>
+            */ ?>
 
             <div class="control-group">
                 <label class="control-label">Password</label>
@@ -59,13 +61,16 @@
                 </div>
             </div>
 
+            <?php /*
             <div class="control-group">
                 <label class="control-label">Password Again</label>
                 <div class="controls">
                     <input type="password" name="password_again" class="input-xlarge" value=""  />
                 </div>
             </div>
+            */ ?>
 
+            <div class="g-recaptcha" data-sitekey="6Lf-vxgTAAAAABPe3UFgdIqsGxC8PafHr8JPrIf7"></div>
 
             <div class="control-group">
                 <div class="controls">
@@ -131,3 +136,5 @@
     });
 
 </script>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
