@@ -118,7 +118,10 @@ class User extends CI_Controller
 		$last_name = trim( $this->input->post('last_name') );
 		$email = trim( strtolower( $this->input->post('email') ) );
 		$password = trim( $this->input->post('password') );
-		
+		$register_referrer = trim( $this->input->post('register_referrer') );
+		$register_domain = trim( $this->input->post('register_domain') );
+		$register_url = trim( $this->input->post('register_url') );
+
 		$register_user_agent = $this->agent->agent_string();
 
 		# echo $register_user_agent;
@@ -131,9 +134,6 @@ class User extends CI_Controller
 		# $register_device_category = $this->agent->find_device_category();
 		$register_device_category = '';
 		$register_platform = $this->agent->platform();
-		$register_referrer = $this->agent->referrer();
-		$register_domain = $_SERVER['HTTP_HOST'];
-		$register_url = current_url();
 
 		$ip_address = $this->input->ip_address();
 		$geoip_a = '';
@@ -226,7 +226,7 @@ class User extends CI_Controller
 
 		echo $user_id;
 
-		die('not yet ready');
+		die(' not yet ready ');
 
 		# print_r($result);
 		# die();

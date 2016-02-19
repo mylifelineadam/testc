@@ -73,6 +73,10 @@
                 </div>
             </div>
 
+            <input type="hidden" name="register_referrer" value="<?=$this->agent->referrer(); ?>" />
+            <input type="hidden" name="register_domain" value="<?=$_SERVER['HTTP_HOST']; ?>" />
+            <input type="hidden" name="register_referrer" value="<?=current_url(); ?>" />
+
         </form>
 
         <a href="<?=site_url('/')?>">Back</a>
