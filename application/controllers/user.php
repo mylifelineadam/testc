@@ -165,16 +165,20 @@ class User extends CI_Controller
 			$google_recaptcha_url =
 				"https://www.google.com/recaptcha/api/siteverify?secret="
 				. $google_recaptcha_secret
-				. "&response;="
+				. "&response="
 				. $recaptchaResponse
-				. "&remoteip;="
+				. "&remoteip="
 				. $ip_address;
+
+			echo "google_recaptcha_url: " . $google_recaptcha_url . " .... ";
 
 			# use curl to call google API 
 			$google_recaptcha_response = $this->curl->simple_get($google_recaptcha_url);
 			
 			# decode json response
 			$google_recaptcha_status = json_decode($google_recaptcha_response, true);
+
+			echo " google_recaptcha_status: ... " $google_recaptcha_status . " ... ";
 
 			if($google_recaptcha_status['success']){     
 				
