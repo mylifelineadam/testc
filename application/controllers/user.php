@@ -170,7 +170,7 @@ class User extends CI_Controller
 				. "&remoteip="
 				. $ip_address;
 
-			echo "google_recaptcha_url: " . $google_recaptcha_url . " .... ";
+			# echo "google_recaptcha_url: " . $google_recaptcha_url . " .... ";
 
 			# use curl to call google API 
 			$google_recaptcha_response = $this->curl->simple_get($google_recaptcha_url);
@@ -178,7 +178,7 @@ class User extends CI_Controller
 			# decode json response
 			$google_recaptcha_status = json_decode($google_recaptcha_response, true);
 
-			echo " google_recaptcha_status: ... " . $google_recaptcha_status . " ... ";
+			# echo " google_recaptcha_status: ... " . $google_recaptcha_status . " ... ";
 
 			if($google_recaptcha_status['success']){     
 				
@@ -186,7 +186,7 @@ class User extends CI_Controller
 				# success
 				# ... simply continue
 
-				echo "recaptcha ... success ... ";
+				# echo "recaptcha ... success ... ";
 
 			}else{
 				
@@ -226,9 +226,9 @@ class User extends CI_Controller
 			$geoip_a = json_decode($geoip_json, true);
 			$register_geoip_a = "";
 			
-			echo "<pre>";
-			print_r($geoip_a);
-			echo "</pre>";
+			# echo "<pre>";
+			# print_r($geoip_a);
+			# echo "</pre>";
 
 			# if geo pull is a valid array
 			if ( 
@@ -256,6 +256,8 @@ class User extends CI_Controller
 		# END find geo location based on IP address
 
 		# BEGIN mobile detect
+		echo " ... attempt to ... ";
+
 		$register_device_category = $this->mobiledetect->find_device_category();
 
 		echo " ... register_device_category: " . $register_device_category . " ... ";

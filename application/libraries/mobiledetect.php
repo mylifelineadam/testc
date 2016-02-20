@@ -1,10 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class mobiledetect
+require_once APPPATH.'third_party/mobile_detect/Mobile_Detect.php';
+
+class MobileDetect extends Mobile_Detect {
 {
 	public function __construct()
 	{
-		require_once APPPATH.'third_party/mobile_detect/Mobile_Detect.php';
 	}
 
     public function find_device_category()
