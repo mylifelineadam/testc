@@ -2,7 +2,7 @@
 
 require_once APPPATH.'third_party/mobile_detect/Mobile_Detect.php';
 
-class MobileDetect extends Mobile_Detect {
+class MobileDetect extends Mobile_Detect 
 {
 	public function __construct()
 	{
