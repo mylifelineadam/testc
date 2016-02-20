@@ -178,7 +178,7 @@ class User extends CI_Controller
 			# decode json response
 			$google_recaptcha_status = json_decode($google_recaptcha_response, true);
 
-			echo " google_recaptcha_status: ... " $google_recaptcha_status . " ... ";
+			echo " google_recaptcha_status: ... " . $google_recaptcha_status . " ... ";
 
 			if($google_recaptcha_status['success']){     
 				
