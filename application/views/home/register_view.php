@@ -2,13 +2,19 @@
     
     <div class="span6">
 
-        <div id="register_form_error" class="alert alert-error"><!-- Dynamic --></div>
 
         <form id="register_form" class="form-horizontal" method="post" action="<?=site_url('user/register'); ?>">
 
             <?php /*
             <div id="register_form_alert" style="display: none;"></div>
             */ ?>
+
+            <div class="control-group">
+                <label class="control-label">&nbsp;</label>
+                <div class="controls">
+                    <div id="register_form_error" class="alert alert-error"><!-- Dynamic --></div>
+                </div>
+            </div>
 
             <div class="control-group">
                 <label class="control-label">First Name</label>
@@ -70,7 +76,12 @@
             </div>
             */ ?>
 
-            <div class="g-recaptcha" data-sitekey="6Lf-vxgTAAAAABPe3UFgdIqsGxC8PafHr8JPrIf7"></div>
+            <div class="control-group">
+                <label class="control-label">&nbsp;</label>
+                <div class="controls">
+                    <div class="g-recaptcha" data-sitekey="6Lf-vxgTAAAAABPe3UFgdIqsGxC8PafHr8JPrIf7"></div>
+                </div>
+            </div>
 
             <div class="control-group">
                 <div class="controls">
