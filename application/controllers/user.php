@@ -72,6 +72,9 @@ class User extends CI_Controller
 	public function register()
 	{
 
+		# load CURL so we can get results from Google reCAPTCHA 
+		$this->load->library('curl');
+
 		# always output json
 		$this->output->set_content_type('application_json');
 
@@ -82,6 +85,8 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('last_name', 'Last Name', 'required|min_length[2]|max_length[30]');
 		$this->form_validation->set_rules('login', 'Login', 'required|min_length[6]|max_length[16]|is_unique[user.login]');
 		$this->form_validation->set_rules('city', 'City', 'exact_length[0]');
+		$this->form_validation->set_rules('g-recaptcha-response', 'reCAPTCHA', 'required');
+
 		# $this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]|matches[email_again]');
 		$this->form_validation->set_rules('email', 'Email', 'required|min_length[6]|valid_email|is_unique[user.email]');
 		# $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[password_again]');
@@ -123,6 +128,7 @@ class User extends CI_Controller
 		$register_referrer = trim( $this->input->post('register_referrer') );
 		$register_domain = trim( $this->input->post('register_domain') );
 		$register_url = trim( $this->input->post('register_url') );
+		$recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
 
 		$register_user_agent = $this->agent->agent_string();
 
@@ -148,9 +154,55 @@ class User extends CI_Controller
 		$register_dma_code = '';
 		$register_area_code = '';
 
+		# BEGIN verify Google reCAPTCHA
+		if ($recaptchaResponse != "") {
 
+			# Google credentials
+			$google_recaptcha_sitekey = '6Lf-vxgTAAAAABPe3UFgdIqsGxC8PafHr8JPrIf7';
+			$google_recaptcha_secret = '6Lf-vxgTAAAAABbM_pTBxLbzdmqgVseWDqozC8LA';
+
+			# compose Google URL
+			$google_recaptcha_url =
+				"https://www.google.com/recaptcha/api/siteverify?secret="
+				. $google_recaptcha_secret
+				. "&response;="
+				. $recaptchaResponse
+				. "&remoteip;="
+				. $ip_address;
+
+			# use curl to call google API 
+			$google_recaptcha_response = $this->curl->simple_get($google_recaptcha_url);
+			
+			# decode json response
+			$google_recaptcha_status = json_decode($google_recaptcha_response, true);
+
+			if($google_recaptcha_status['success']){     
+				
+				# $this->session->set_flashdata('flashSuccess', 'Google Recaptcha Successful');
+				# success
+				# ... simply continue
+
+				echo "recaptcha ... success ... ";
+
+			}else{
+				
+				# $this->session->set_flashdata('flashSuccess', 'Sorry Google Recaptcha Unsuccessful!!');
+
+				# set result to "0" and send back recapture errors
+	            $this->output->set_output(json_encode([ 'result' => 0, 'recapture' => 'fail']));
+
+				# exit out of function
+				return false;
+			}
+
+		}
+		# END verify Google reCAPTCHA
+
+
+
+		# BEGIN find geo location based on IP address
 		# if there's an ip address
-		if ($ip_address) {
+		if ($ip_address != "") {
 			
 			# pull geo data based on ip address
 			
@@ -197,7 +249,9 @@ class User extends CI_Controller
 
 			}
 		}
+		# END find geo location based on IP address
 
+		# BEGIN insert user into database
 		$user_id = $this->user_model->insert([
 			'login' => $login,
 			'first_name' => $first_name,
