@@ -293,9 +293,9 @@ class User extends CI_Controller
 		
 		]);
 
-		echo " ... user_id: ... " . $user_id . " ... ";
+		# echo " ... user_id: ... " . $user_id . " ... ";
 
-		die(' not yet ready ');
+		# die(' not yet ready ');
 
 		# print_r($result);
 		# die();
@@ -327,10 +327,10 @@ class User extends CI_Controller
 
 		# print_r($result);
 
-		# die();
-
-		# $session = $this->session->all_userdata();
+		$session = $this->session->all_userdata();
 		# print_r($session);
+
+		die();
 
 	}
 

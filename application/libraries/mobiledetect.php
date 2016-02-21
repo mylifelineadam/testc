@@ -10,14 +10,8 @@ class MobileDetect extends Mobile_Detect {
 
     public function find_device_category()
     {
- 
-        echo __LINE__."<br/>";
 
         $temp_device_category = 0;
-
-        # $detect = $this->Mobile_Detect();
-
-        echo __LINE__."<br/>";
 
         if ( $this->isTablet() ) {
             $temp_device_category = 3; # Tablet
@@ -28,8 +22,6 @@ class MobileDetect extends Mobile_Detect {
         } else {
             $temp_device_category = 1; # Desktop
         }
-
-        echo __LINE__."<br/>";
 
         return $temp_device_category;
 
