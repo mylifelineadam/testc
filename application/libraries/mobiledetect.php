@@ -15,14 +15,14 @@ class MobileDetect extends Mobile_Detect {
 
         $temp_device_category = 0;
 
-        $detect = $this->Mobile_Detect();
+        # $detect = $this->Mobile_Detect();
 
         echo __LINE__."<br/>";
 
-        if ( $detect->isTablet() ) {
+        if ( $this->isTablet() ) {
             $temp_device_category = 3; # Tablet
 
-        } elseif ( $detect->isMobile() ) {
+        } elseif ( $this->isMobile() ) {
             $temp_device_category = 2; # Tablet
 
         } else {
@@ -34,8 +34,6 @@ class MobileDetect extends Mobile_Detect {
         return $temp_device_category;
 
     }
-
-
 
 }
 
