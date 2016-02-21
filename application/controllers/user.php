@@ -269,7 +269,9 @@ class User extends CI_Controller
 			'last_name' => $last_name,
 			'email' => $email,
 			'password' => hash('sha256', $password . SALT),
-			
+			'date_added' => date('Y-m-d H:i:s'),
+			'date_modified' => date('Y-m-d H:i:s'),
+
 			'register_user_agent' => $register_user_agent,
 			'register_device_category' => $register_device_category,
 			'register_platform' => $register_platform,
