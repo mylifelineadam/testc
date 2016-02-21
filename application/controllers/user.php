@@ -256,11 +256,11 @@ class User extends CI_Controller
 		# END find geo location based on IP address
 
 		# BEGIN mobile detect
-		echo " ... attempt to ... ";
+		# echo " ... attempt to ... ";
 
-		$register_device_category = $this->mobiledetect->find_device_category();
+		# $register_device_category = $this->mobiledetect->find_device_category();
 
-		echo " ... register_device_category: " . $register_device_category . " ... ";
+		# echo " ... register_device_category: " . $register_device_category . " ... ";
 
 		# BEGIN insert user into database
 		$user_id = $this->user_model->insert([
@@ -293,7 +293,7 @@ class User extends CI_Controller
 		
 		]);
 
-		echo $user_id;
+		echo " ... user_id: ... " . $user_id . " ... ";
 
 		die(' not yet ready ');
 
